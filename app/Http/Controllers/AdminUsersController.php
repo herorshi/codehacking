@@ -9,6 +9,9 @@ use App\User;
 use App\Role;
 
 
+use App\Photo;
+
+
 use App\Http\Requests\UsersRequest;
 
 class AdminUsersController extends Controller
@@ -56,10 +59,42 @@ class AdminUsersController extends Controller
     {
         //
 
-         User::create($request->all()); //add ข้อมูลจาก request
-         return  redirect('/admin/users');
+    //     User::create($request->all()); //add ข้อมูลจาก request
+    //     return  redirect('/admin/users');
 
     //    return  $request->all();
+
+        $input = $request->all();
+
+         echo $request->file('photo_id'); // ตรงนี้เป็นที่อยู่ของไฟล์
+
+
+         if($file =  $request->file('photo_id')) // get ที่อยู่file
+         {
+
+                $name = time().$file->getClientOriginalName();
+                    echo "<br>".$name; //ชื่อ file
+
+                    $file->move('images',$name); //pathเริ่มต้นจะอยู่ใน folder public
+
+
+                        $photo = Photo::create(['file'=>$name]); //เท่ากับ ได้ insert และ และ query
+                                                                //rowที่ insert มาดเวย
+
+                        echo "<br><br>";
+                        var_dump($photo);
+
+                        $input['photo_id'] = $photo->id;
+                        $input['password'] = bcrypt($request->password); //เข้ารหัส password
+
+
+                    $ua = User::create($input);
+                    echo "<br><br>";
+                    var_dump($ua);
+
+         }
+
+
     }
 
     /**
