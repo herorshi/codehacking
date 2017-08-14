@@ -3,6 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth; //ต้องใส่ด้วย
+
+
 
 class Admin
 {
@@ -15,6 +18,26 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+
+                if(Auth::check())
+                {
+
+
+                        if(Auth::user()->isAdmin()){
+
+
+                          //  echo "DDDD";
+                          //      echo "<br><br>";
+
+                          //      var_dump(Auth::user()->isAdmin());
+
+                           return $next($request);
+
+                        }
+
+
+
+                }
+                    return redirect()->intended('/');
     }
 }

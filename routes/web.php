@@ -1,4 +1,5 @@
 <?php
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
- Route::resource('/admin/users','AdminUsersController');
 
 Route::get('hr',function(){
 
@@ -33,6 +33,34 @@ Route::get('hr',function(){
 
 });
 
+
+ Route::get('xa',function(){
+
+
+return User::all();
+ });
+
+ Route::post('xa2',function(){
+
+   $u = file_get_contents('php://input'); //VUE.post
+   $m = json_decode($u,true);
+ //  var_dump($m);
+  echo $m['email']."<br><br>".$m['hp'];
+return User::all();
+ });
+
+
+
+
+Route::group(['middleware'=>'admin'],function(){
+
+
+
+ Route::resource('/admin/users','AdminUsersController');
+
+ Route::resource('/admin/posts','AdminPostsController');
+
+});
 
 Route::get('/admin',function(){
 

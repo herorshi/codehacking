@@ -69,6 +69,22 @@
 @include('includes.includes_test') 
   {{-- path include จะเริ่มต้นที่  folder view เสมอ  --}}
 
+
+
+   {!! Form::open(['method'=>'DELETE','action'=>['AdminUsersController@destroy',$user->id],'class'=>'pull-right' ])   !!}
+
+
+
+   		<div class="from-group">
+   			{!!  Form::submit('Deleet user',['class'=>'btn btn-danger']) !!}
+
+   		</div>	
+
+	{!!  Form::close()  !!}
+
+
+
+
 </div> 
 @stop
 

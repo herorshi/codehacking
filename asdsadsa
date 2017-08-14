@@ -1,0 +1,29 @@
+[33mcommit b196c5ca35f99b3bd6b40689ef2f0edb33184009[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: METASIT <user.email>
+Date:   Sat Aug 12 19:15:37 2017 +0700
+
+    users section working 100 percent
+
+[33mcommit 0c7f83de55794f16743f1113531da650d2e063d9[m
+Author: METASIT <user.email>
+Date:   Sat Aug 12 17:00:02 2017 +0700
+
+    users with photos working
+
+[33mcommit 53376cd6207d11c0d41c0034542b4e19d4679336[m
+Author: METASIT <user.email>
+Date:   Fri Aug 11 23:35:25 2017 +0700
+
+    users page working without photos
+
+[33mcommit a66bd07b24a31eb4b936ef819f6f2069c3773d83[m
+Author: METASIT <user.email>
+Date:   Fri Aug 11 16:52:31 2017 +0700
+
+    admin master page setup
+
+[33mcommit a447dfa7c9d772a59a157855f63646f667e24d5a[m
+Author: METASIT <user.email>
+Date:   Thu Aug 10 16:44:51 2017 +0700
+
+    my first comming -admin views created

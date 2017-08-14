@@ -8,6 +8,9 @@ use App\User;
 
 use App\Role;
 
+use Illuminate\Support\Facades\Session;
+
+
 
 use App\Photo;
 
@@ -177,5 +180,22 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         //
+
+
+    //    User::findOrFail($id)->delete();
+
+        $user = User::findOrFail($id);
+
+        unlink(public_path().$user->photo->file); 
+        //unlink function ลบไฟล์ 
+        //(pathที่อยู่,ชื่อไฟล์ที่จะลบ)
+
+        $user->delete();
+
+        Session::flash('deleted_user','The user has been deleted'); //เป็นการทำร้าย session
+
+        return redirect('admin/users');
+
+            //return "DELETEx";
     }
 }

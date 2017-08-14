@@ -22,9 +22,27 @@
 
 
             <example> </example>
-
-
+ <center>
+            <router-view> </router-view>
+            <router-link :to="{name:'start'}"  tag="button" class="btn btn-primary" >start</router-link>
+            <router-link :to="{name:'sname'}" tag="button" class="btn btn-primary">surname </router-link>
+</center>
             </div>
+
+
+
+<script>
+
+window.Laravel = <?php   echo json_encode([
+
+    'csrfToken' => csrf_token(),
+
+
+    ]);?>
+
+
+
+</script>
 
   <script src="/js/app.js"> </script>
 
