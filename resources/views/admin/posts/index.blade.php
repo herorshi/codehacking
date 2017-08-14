@@ -35,7 +35,7 @@
 				<tr>
 					<td align="center">{{$post->id}}</td>
 					<td align="center">{{$post->user->name}}</td>
-					<td align="center">{{$post->category_id}}</td>
+					<td align="center">{{$post->category ? $post->category->name : 'Not have Category'  }}</td>
 					<td align="center"><img src="{{$post->photo ? $post->photo->file : 'http://placehold.it/400x400'}}" width="100" height="50"></td>
 					<td align="ceneter">{{$post->title}}</td>
 					<td align="center">{{$post->body}}</td>

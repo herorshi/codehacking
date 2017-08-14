@@ -30,7 +30,7 @@ class PostCreateRequest extends FormRequest
         'photo_id'   =>'required',
         'title'      =>'required',
         'body'       =>'required',
-
+        'category'   =>'required',
 
         ];
     }

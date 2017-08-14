@@ -10,6 +10,9 @@ use App\Photo;
 
 use App\User;
 
+
+use App\Category;
+
 use App\Http\Requests\PostCreateRequest;
 
 class AdminPostsController extends Controller
@@ -42,7 +45,12 @@ class AdminPostsController extends Controller
        // $post = App\Post::delete();
 
         //echo $post;
-        return view('admin.posts.create');
+
+            $category = Category::pluck('name','id')->all();
+
+        //    var_dump($category);
+
+        return view('admin.posts.create',compact('category'));
 
     }
 
